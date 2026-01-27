@@ -1,5 +1,8 @@
 ### 1. Dimensão Demografia
 
+Este documento estabelece as abreviações e os padrões de nomenclatura adotados no modelo Star Schema da camada Gold.
+
+
 | Nome | Sigla |
 | :--- | :--- |
 | **Demografia (Tabela)** | **dmg** |
