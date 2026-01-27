@@ -1,13 +1,12 @@
 -- =========================================================
 -- DDL - SCHEMA DW (GOLD)
--- Padrão Mnemônico: 3 letras, fatos e dimensões
 -- =========================================================
 
 CREATE SCHEMA IF NOT EXISTS dw;
 
 -- 1. Dimensão Demografia (dmg)
-DROP TABLE IF EXISTS dw.dim_demografia CASCADE;
-CREATE TABLE dw.dim_demografia (
+DROP TABLE IF EXISTS dw.dim_dmg CASCADE;
+CREATE TABLE dw.dim_dmg (
     dmg_srk SERIAL PRIMARY KEY,   
     dmg_sex VARCHAR(20),           
     dmg_ida VARCHAR(20),          
@@ -16,8 +15,8 @@ CREATE TABLE dw.dim_demografia (
 );
 
 -- 2. Dimensão Estilo de Vida (est)
-DROP TABLE IF EXISTS dw.dim_estilo_vida CASCADE;
-CREATE TABLE dw.dim_estilo_vida (
+DROP TABLE IF EXISTS dw.dim_est CASCADE;
+CREATE TABLE dw.dim_est (
     est_srk SERIAL PRIMARY KEY,
     est_fum VARCHAR(5),           
     est_fru VARCHAR(5),           
@@ -27,8 +26,8 @@ CREATE TABLE dw.dim_estilo_vida (
 );
 
 -- 3. Dimensão Acesso Médico (acs)
-DROP TABLE IF EXISTS dw.dim_acesso_medico CASCADE;
-CREATE TABLE dw.dim_acesso_medico (
+DROP TABLE IF EXISTS dw.dim_acs CASCADE;
+CREATE TABLE dw.dim_acs (
     acs_srk SERIAL PRIMARY KEY,
     acs_pla VARCHAR(5),           
     acs_cus VARCHAR(5),            
@@ -36,8 +35,8 @@ CREATE TABLE dw.dim_acesso_medico (
 );
 
 -- 4. Dimensão Histórico Clínico (cli)
-DROP TABLE IF EXISTS dw.dim_historico_clinico CASCADE;
-CREATE TABLE dw.dim_historico_clinico (
+DROP TABLE IF EXISTS dw.dim_cli CASCADE;
+CREATE TABLE dw.dim_cli (
     cli_srk SERIAL PRIMARY KEY,
     cli_pre VARCHAR(5),            
     cli_col VARCHAR(5),            
@@ -47,13 +46,13 @@ CREATE TABLE dw.dim_historico_clinico (
 );
 
 -- 5. Tabela Fato Saúde (fat)
-DROP TABLE IF EXISTS dw.fat_saude_pessoa CASCADE;
-CREATE TABLE dw.fat_saude_pessoa (
+DROP TABLE IF EXISTS dw.fat_sau CASCADE;
+CREATE TABLE dw.fat_sau (
     fat_id SERIAL PRIMARY KEY,
-    dmg_srk INTEGER REFERENCES dw.dim_demografia(dmg_srk),
-    est_srk INTEGER REFERENCES dw.dim_estilo_vida(est_srk),
-    acs_srk INTEGER REFERENCES dw.dim_acesso_medico(acs_srk),
-    cli_srk INTEGER REFERENCES dw.dim_historico_clinico(cli_srk),
+    dmg_srk INTEGER REFERENCES dw.dim_dmg(dmg_srk),
+    est_srk INTEGER REFERENCES dw.dim_est(est_srk),
+    acs_srk INTEGER REFERENCES dw.dim_acs(acs_srk),
+    cli_srk INTEGER REFERENCES dw.dim_cli(cli_srk),
     fat_dia VARCHAR(20),          
     fat_imc DECIMAL(5,2),          
     fat_sau VARCHAR(20),           
