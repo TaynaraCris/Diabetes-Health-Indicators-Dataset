@@ -21,7 +21,7 @@ Este documento estabelece as abreviações e os padrões de nomenclatura adotado
 | Fumante | `est_fum` |
 | Frutas | `est_fru` |
 | Vegetais | `est_veg` |
-| Atividade Física | `est_fis` |
+| Atividade Física | `est_atv_fis` |
 | Álcool | `est_alc` |
 
 ### 3. Dimensão Acesso Médico
@@ -30,9 +30,9 @@ Este documento estabelece as abreviações e os padrões de nomenclatura adotado
 | :--- | :--- |
 | **Acesso Médico (Tabela)** | **acs** |
 | Surrogate Key | `acs_srk` |
-| Plano de Saúde | `acs_pla` |
-| Custo Médico | `acs_cus` |
-| Checkup Colesterol | `acs_col` |
+| Plano de Saúde | `acs_pla_sau` |
+| Custo Médico | `acs_cus_med` |
+| Checkup Colesterol | `acs_che_col` |
 
 ### 4. Dimensão Histórico Clínico
 
@@ -40,11 +40,11 @@ Este documento estabelece as abreviações e os padrões de nomenclatura adotado
 | :--- | :--- |
 | **Histórico Clínico (Tabela)** | **cli** |
 | Surrogate Key | `cli_srk` |
-| Pressão Alta | `cli_pre` |
-| Colesterol Alto | `cli_col` |
+| Pressão Alta | `cli_pre_alt` |
+| Colesterol Alto | `cli_col_alt` |
 | AVC | `cli_avc` |
-| Doença Coração | `cli_cor` |
-| Dificuldade Andar | `cli_and` |
+| Doença Coração | `cli_doe_cor` |
+| Dificuldade Andar | `cli_dif_and` |
 
 ### 5. Fato Saúde Pessoa
 
@@ -52,10 +52,10 @@ Este documento estabelece as abreviações e os padrões de nomenclatura adotado
 | :--- | :--- |
 | **Fato Saúde (Tabela)** | **fat** |
 | ID Fato | `fat_id` |
-| Diabetes Status | `fat_dia` |
+| Diabetes Status | `fat_dia_sta` |
 | IMC | `fat_imc` |
-| Saúde Geral | `fat_sau` |
-| Saúde Mental (Dias) | `fat_men` |
-| Saúde Física (Dias) | `fat_fis` |
-| Risco Total | `fat_ris` |
-| Data Carga | `fat_dat` |
+| Saúde Geral | `fat_sau_ger` |
+| Saúde Mental | `fat_sau_men` |
+| Saúde Física | `fat_sau_fis` |
+| Risco Total | `fat_ris_tot` |
+| Data Carga | `fat_dat_car` |
