@@ -13,5 +13,16 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  jupyter:
+    build: .
+    container_name: diabetes_health_indicators_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./Data Layer:/home/jovyan/work/Data_Layer
+      - ./transformer:/home/jovyan/work/transformer
+    depends_on:
+      - postgres
+
 volumes:
   postgres_data:
