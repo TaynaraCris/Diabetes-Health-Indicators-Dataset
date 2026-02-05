@@ -4,7 +4,7 @@ services:
     container_name: diabetes_health_indicators_postgres
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-diabetes_health_indicators}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
